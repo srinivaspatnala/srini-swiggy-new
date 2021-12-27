@@ -1,0 +1,43 @@
+<section class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="">
+      <div class="card p-5">
+        <h1 class="d-flex justify-content-center">Login</h1>
+        <!-- <form [formGroup]="loginList" (ngSubmit)="login()"> -->
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label"
+              >Email address</label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              formControlName="email"
+              aria-describedby="emailHelp"
+              required
+            />
+          </div>
+          <div class="mb-2">
+            <label for="exampleInputPassword1" class="form-label"
+              >Password</label
+            >
+            <input
+              formControlName="password"
+              [type]="showPassword ? 'password' : 'text'"
+              class="form-control mb-2"
+            />
+            <div (click)="showPassword = !showPassword">
+              <input type="checkbox" />
+              <span> Show Password</span>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" routerLink="/navbar">Submit</button>
+        <!-- </form> -->
+        <a routerLink="/signup" class="text-dark mt-2"
+          >New User? Create Account</a
+        >
+      </div>
+    </div>
+  </div>
+</section>

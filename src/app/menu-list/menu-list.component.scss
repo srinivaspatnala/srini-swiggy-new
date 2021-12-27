@@ -1,0 +1,89 @@
+@import "../../assets/styles/variables";
+
+.bg-head-color {
+  background-color: $dark-bg;
+}
+.offer-box {
+  height: 100px;
+  width: 100px;
+  border: 1px solid $white-color;
+  position: relative;
+  margin-left: 20px;
+  .offer-badge {
+    // height: 30px;
+    // width: 60px;
+    color: $white-color;
+    background-color: $dark-bg;
+    position: absolute;
+    bottom: 75px;
+    right: 300px;
+    padding: 11px;
+  }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+}
+
+.quantity-badge {
+  width: 85px;
+  padding: 5px;
+  background-color: $grey-white;
+  color: $green-color;
+  font-weight: 700;
+  text-align: center;
+  border: 1px solid $black-color;
+}
+.add-badge {
+  width: 85px;
+  padding: 7px;
+  background-color: $grey-white;
+  color: $green-color;
+  font-weight: 700;
+  text-align: center;
+  border: 1px solid $black-color;
+}
+
+div {
+  input[type="numberr"] {
+    width: 35px;
+    border: 0px;
+    background-color: transparent;
+    padding-left: 12px;
+    color: $green-color;
+    font-weight: 700;
+  }
+  .fa-minus,
+  .fa-plus {
+    margin-top: 6px;
+  }
+}
+
+.pm-colors {
+  color: $green-color;
+}
+.pm-colors-not {
+  color: $brown-color;
+}
+
+$grey-color: #7e808c;
+$green-color: #60b246;
+
+.grey-text {
+  color: $grey-color;
+  font-weight: 600;
+}
+.grey-text-head {
+  color: $grey-color;
+  font-weight: 700;
+}
+.btn-checkout {
+  padding: 15px;
+  background-color: $green-color;
+  color: #ffffff;
+  border: 0px;
+  font-weight: 700;
+  width: 100%;
+  font-size: 16px;
+}

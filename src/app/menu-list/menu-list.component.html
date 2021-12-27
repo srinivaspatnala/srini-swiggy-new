@@ -1,0 +1,216 @@
+<section class="p-4 bg-head-color text-light">
+  <div class="row" style="display: flex">
+    <div class="col" style="flex: 1">
+      <img src="{{ hotelData.image }}" width="250px" alt="" />
+    </div>
+    <div style="flex: 2">
+      <h2>{{ hotelData.hName }}</h2>
+      <h5>{{ hotelData.type }}</h5>
+      <h6>{{ hotelData.location }}</h6>
+
+      <div style="display: flex; gap: 30px" class="my-3">
+        <span>
+          <p class="fa fa-star m-0"></p>
+          {{ hotelData.rating }}
+          <br />
+
+          <font
+            style="
+              color: rgb(128, 128, 128);
+              font-size: small;
+              font-weight: 700;
+            "
+          >
+            1000+ Ratings</font
+          ></span
+        >
+        |
+        <span
+          >{{ hotelData.timeOfArrival }} <br />
+          <font
+            style="
+              color: rgb(128, 128, 128);
+              font-size: small;
+              font-weight: 700;
+            "
+          >
+            Delivery Time</font
+          ></span
+        >
+        |
+        <span>
+          ₹ 350 <br />
+          <font
+            style="
+              color: rgb(128, 128, 128);
+              font-size: small;
+              font-weight: 700;
+            "
+          >
+            Cost for two
+          </font>
+        </span>
+      </div>
+    </div>
+    <div class="offer-box p-3 mt-5" style="flex: 1">
+      <h5 class="offer-badge">OFFER</h5>
+      <p class="offer-point">
+        <span class="fa fa-tags"></span> 60% off up to ₹120 | Use code TRYNEW
+      </p>
+      <p class="offer-point">
+        <span class="fa fa-tags"></span> 25% off | Use code UNLIMITED
+      </p>
+    </div>
+  </div>
+</section>
+<section class="px-3 mt-5">
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+      <h1>Recommeneded</h1>
+      <p>{{ foodData.length }} ITEMS</p>
+      <div class="food-details" *ngFor="let food of foodData; let id = index">
+        <img
+          src="{{ food.image }}"
+          width="150px"
+          class="float-end rest-img"
+          alt=""
+        />
+        <h4>{{ food.fName }}</h4>
+        <h5 class="my-3">₹ {{ food.cost }}</h5>
+        <p>
+          {{ food.description }}
+        </p>
+
+        <!-- button starts here -->
+
+        <span class="add-badge" *ngIf="food.showAdd" (click)="showPM(food)">
+          ADD
+        </span>
+
+        <div class="d-flex quantity-badge" *ngIf="!food.showAdd">
+          <div
+            class="fa fa-minus flex-xl-grow-1"
+            (click)="addMinus(food)"
+            [style.pointerEvents]="food.quantity < 1 ? 'none' : 'auto'"
+            [class]="food.quantity < 1 ? 'pm-colors-not' : 'pm-colors'"
+          ></div>
+          <div class="input-quantity flex-xl-grow-1">
+            <input type="numberr" disabled [(ngModel)]="food.quantity" />
+          </div>
+          <div
+            class="fa fa-plus flex-xl-grow-1"
+            (click)="addPlus(food)"
+            [style.pointerEvents]="food.quantity > 4 ? 'none' : 'auto'"
+            [class]="food.quantity > 4 ? 'pm-colors-not' : 'pm-colors'"
+          ></div>
+        </div>
+
+        <!-- button ends here -->
+
+        <hr />
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <section>
+        <div *ngIf="cartItems.length === 0">
+          <h3 class="grey-text-head">Cart Empty</h3>
+          <img
+            class="mt-5 p-3"
+            src="../../assets/images/Cart_empty.png"
+            height="200px;"
+            alt=""
+          />
+          <p class="grey-text">
+            Good food is always cooking! Go ahead, order some yummy items from
+            the menu.
+          </p>
+        </div>
+
+        <div>
+          <div *ngIf="cartItems.length > 0 && !formDetails">
+            <h3>Cart</h3>
+
+            <p>{{ cartItems.length }} ITEMS</p>
+            <div
+              *ngFor="let cart of cartItems"
+              class="d-flex justify-content-between my-3"
+            >
+              <h6 *ngIf="cart.quantity">
+                {{ cart.fName }} x {{ cart.quantity }}
+              </h6>
+              <p *ngIf="cart.quantity">₹ {{ cart.cost * cart.quantity }}</p>
+            </div>
+            <hr />
+            <div class="d-flex justify-content-between my-3">
+              <h4 class="">
+                Subtotal
+                <span style="font-size: 14px">
+                  <br />Extra charges may apply</span
+                >
+              </h4>
+
+              <h4 class="float-end">₹ {{ billAmount }}</h4>
+            </div>
+            <button class="btn btn-checkout" (click)="checkOut()">
+              CHECKOUT <span class="fa fa-arrow-right"></span>
+            </button>
+          </div>
+        </div>
+
+        <div *ngIf="showPlaceOrder && !formDetails">
+          <form [formGroup]="checkOutForm">
+            <div class="mt-4">
+              <h5>Fill below details to order</h5>
+              <label for="name" class="mt-3">Name</label>
+              <input [class.is-invalid]="this.checkOutForm.get('name')?.touched && this.checkOutForm.get('name')?.invalid"
+                type="text"
+                class="form-control mt-3"
+                required
+                id="name"
+                formControlName="name"
+              />
+              <small *ngIf="checkForm.name.invalid && checkForm.name.touched" style="color:red">This field is required *</small>
+            </div>
+            <div>
+              <label for="phone" class="mt-3">Phone</label>
+              <input
+                [class.is-invalid]="this.checkOutForm.get('phone')?.touched && checkForm.phone.invalid"
+                type="number"
+                class="form-control mt-3 w-100"
+                required
+                id="phone"
+                formControlName="phone"
+              />
+              <div *ngIf="checkForm.phone.invalid && checkForm.phone.touched" >
+                <small [class.d-none]="checkForm.phone.errors?.pattern" style="color:red">Phone number is required</small>
+                <small [class.d-none]="checkForm.phone.errors?.required" style="color:red">Invalid format</small>
+              </div>
+            </div>
+            <button
+              class="btn btn-checkout mt-3"
+              [disabled]="checkForm.phone.invalid || checkForm.name.invalid" (click)="checkOutFormSubmit()" 
+            >
+              Place Your Order <span class="fa fa-arrow-right"></span>
+            </button>
+          </form>
+        </div>
+
+        <div *ngIf="formDetails">
+          <h4 style="color: #60b246" class="mt-3">
+            Your Order has been Placed
+          </h4>
+          <h5 class="mt-3">Name: {{ formDetails.name }}</h5>
+          <h6 class="mt-3">Phone Number: {{ formDetails.phone }}</h6>
+          <img
+            src="../../assets/images/order-placed2.png"
+            height="130px"
+            alt=""
+          />
+          <h3 class="mt-2" style="color: #af6709">Food is on your way!</h3>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

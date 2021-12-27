@@ -1,0 +1,21 @@
+@import "../../assets/styles/variables";
+
+.offer-text {
+  color: $brown-text;
+}
+.view-text {
+  color: $blue-text;
+  cursor: pointer;
+}
+.badge {
+  background-color: $orange-dark !important;
+  border-radius: 0px !important;
+  padding: 5px;
+  font-size: 13px;
+}
+.special-text {
+  font-size: 12px;
+}
+a {
+  text-decoration: none;
+}

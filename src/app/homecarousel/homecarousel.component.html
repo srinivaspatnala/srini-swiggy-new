@@ -1,0 +1,21 @@
+<div class="container-fluid p-5 home-carousel-bg">
+  <div class="container">
+    <div
+      id="carouselExampleControls"
+      class="carousel slide"
+      data-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="row">
+            <div class="col-sm-4" *ngFor="let foodCard of carouselImages">
+              <div class="">
+                <img src="{{ foodCard.image }}" width="300px" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

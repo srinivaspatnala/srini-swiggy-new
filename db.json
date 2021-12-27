@@ -1,0 +1,65 @@
+{
+  "posts": [
+    {
+      "name": "Srinivas Patnala",
+      "type": "non veg",
+      "rating": "2.2",
+      "description": "lorem roleld dfns dsfs ",
+      "id": 1
+    },
+    {
+      "name": "prateektesting",
+      "type": "non veg",
+      "rating": "2.2",
+      "description": "lorem roleld dfns dsfs ",
+      "id": 2
+    },
+    {
+      "name": "Srinivas Patnala",
+      "type": "non vegsdfsdf",
+      "rating": "2.2323",
+      "description": "lorem roleld dfns dsfs ",
+      "id": 3
+    },
+    {
+      "name": "Srinivas Patnala",
+      "type": "non veg",
+      "rating": "2.2323",
+      "description": "fsdfsdf",
+      "id": 4
+    }
+  ],
+  "signUpUsers": [
+    {
+      "fullName": "srinivas",
+      "location": "vizag",
+      "email": "spatnala@abc.com",
+      "password": "123123",
+      "id": 1
+    },
+    {
+      "fullName": "srinivas",
+      "location": "vizag",
+      "email": "spatnala@abc.com",
+      "password": "123123",
+      "id": 3
+    },
+    {
+      "fullName": "shoba",
+      "location": "vizag",
+      "email": "slekala@abc.com",
+      "password": "123112",
+      "id": 4
+    },
+    {
+      "fullName": "srinivas",
+      "location": "vizag",
+      "email": "spatnala@abc.com",
+      "password": "dsfsdfsdf",
+      "id": 5
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

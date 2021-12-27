@@ -1,0 +1,12 @@
+@import "../../assets/styles/variables";
+a.nav-item > span,
+a.nav-item {
+  color: $brown-color;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+a.nav-item:hover,
+a.nav-item > span:hover {
+  color: $orange-color !important;
+}

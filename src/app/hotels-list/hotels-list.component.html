@@ -1,0 +1,36 @@
+<section class="container">
+  <div class="row gy-5 my-5">
+    <div class="col-sm-3" *ngFor="let list of hotelList; index as id">
+      <div class="card">
+        <img
+          class="card-img-top"
+          src="{{ list.image }}"
+          alt="Card image"
+          style="width: 100%"
+        />
+        <div class="card-body">
+          <h4 class="card-title">{{ list.hName }}</h4>
+          <p class="grey-text">{{ list.type }}</p>
+
+          <div>
+            <h6 class="badge bg-danger fa fa-star">
+              {{ list.rating }}
+            </h6>
+            <span class="mx-3 special-text"
+              >{{ list.timeOfArrival + " |" }}
+            </span>
+            <span class="special-text">₹ 250 FOR TWO</span>
+          </div>
+          <hr />
+          <p class="offer-text">
+            <span class="fa fa-percent"></span> 60% off | Use code TRYNEW
+          </p>
+          <hr />
+          <div class="text-center view-text" [routerLink]="['/menu', id]">
+            <strong><a>Quick View</a></strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
