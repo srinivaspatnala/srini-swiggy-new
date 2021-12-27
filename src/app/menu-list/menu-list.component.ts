@@ -80,7 +80,6 @@ export class MenuListComponent implements OnInit {
     this.showPlaceOrder = true;
   }
 
-
   ngOnInit(): void {
 
     this.route.params.subscribe(data => {
@@ -94,3 +93,4 @@ export class MenuListComponent implements OnInit {
   }
 
 }
+// comments for testing git
